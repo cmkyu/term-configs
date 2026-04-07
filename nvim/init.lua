@@ -5,11 +5,14 @@ vim.cmd.colorscheme "catppuccin-frappe"
 require("config.nvim-tree")
 require("config.bufferline")
 require("config.lualine")
+require("config.blink-cmp")
 
 -- Misc options
 vim.o.number = true
 vim.o.cursorline = true
 vim.o.expandtab = true
+-- 80 character limit
+vim.o.colorcolumn = '80'
 -- tab size is 2
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
@@ -25,3 +28,11 @@ vim.keymap.set("n", "<leader>p", ":bp<CR>")
 vim.keymap.set("n", "<leader>d", ":bd<CR>")
 -- <leader>+Esc: exit terminal mode
 vim.keymap.set("t", "<leader><Esc>", "<C-\\><C-n>")
+
+-- LSP settings
+vim.lsp.config['cpp'] = {
+  cmd = { 'clangd' },
+  root_markers = { '.git', '.clangd', 'compile_commands.json' },
+  filetypes = { 'c', 'cpp' },
+}
+vim.lsp.enable('cpp')

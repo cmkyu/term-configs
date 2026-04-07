@@ -1,6 +1,6 @@
 require('lualine').setup({
-    options = {
-        -- Status line is global
-	globalstatus = true,
-    }
+  options = {
+    -- Status line is global
+	  globalstatus = true,
+  }
 })
