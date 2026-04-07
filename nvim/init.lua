@@ -17,6 +17,15 @@ vim.o.colorcolumn = '80'
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
+-- LSP settings
+vim.lsp.config['cpp'] = {
+  cmd = { 'clangd' },
+  root_markers = { '.git', '.clangd', 'compile_commands.json' },
+  filetypes = { 'c', 'cpp' },
+}
+vim.lsp.enable('cpp')
+vim.diagnostic.config({ virtual_text = true })
+
 -- Key mappings
 -- `: bring up a terminal
 vim.keymap.set("n", "`", ":term<CR>")
@@ -28,11 +37,5 @@ vim.keymap.set("n", "<leader>p", ":bp<CR>")
 vim.keymap.set("n", "<leader>d", ":bd<CR>")
 -- <leader>+Esc: exit terminal mode
 vim.keymap.set("t", "<leader><Esc>", "<C-\\><C-n>")
-
--- LSP settings
-vim.lsp.config['cpp'] = {
-  cmd = { 'clangd' },
-  root_markers = { '.git', '.clangd', 'compile_commands.json' },
-  filetypes = { 'c', 'cpp' },
-}
-vim.lsp.enable('cpp')
+-- <leader>+r: rename symbol
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
