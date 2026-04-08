@@ -4,4 +4,12 @@ require("blink-cmp").setup({
     ["<Tab>"] = { "select_next", "fallback" },
     ["<S-Tab>"] = { "select_prev", "fallback" },
   },
+  completion = {
+    list = {
+      selection = {
+        preselect = false,
+        auto_insert = true,
+      },
+    },
+  },
 })

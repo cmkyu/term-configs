@@ -6,6 +6,7 @@ require("config.nvim-tree")
 require("config.bufferline")
 require("config.lualine")
 require("config.blink-cmp")
+require("config.conform")
 
 -- Misc options
 vim.o.number = true
