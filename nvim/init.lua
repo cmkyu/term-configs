@@ -7,6 +7,7 @@ require("config.bufferline")
 require("config.lualine")
 require("config.blink-cmp")
 require("config.conform")
+require("config.telescope")
 
 -- Misc options
 vim.o.number = true
@@ -58,3 +59,10 @@ vim.keymap.set("n", "<leader>d", ":bd<CR>")
 vim.keymap.set("t", "<leader><Esc>", "<C-\\><C-n>")
 -- <leader>+r: rename symbol
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
+
+-- Telescope shortcuts
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
