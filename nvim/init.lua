@@ -28,6 +28,24 @@ vim.lsp.enable('cpp')
 vim.diagnostic.config({ virtual_text = true })
 
 -- Key mappings
+-- Normal jump to definition/declaration (replaces current buffer)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" })
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = "Go to references" })
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = "Go to implementation" })
+
+-- Go to definition in a vertical split
+vim.keymap.set('n', 'gv', function()
+  vim.cmd('vsplit')
+  vim.lsp.buf.definition()
+end, { desc = "Go to definition in vertical split" })
+
+-- Go to definition in a new tab
+vim.keymap.set('n', 'gt', function()
+  vim.cmd('tab split')
+  vim.lsp.buf.definition()
+end, { desc = "Go to definition in new tab" })
+
 -- `: bring up a terminal
 vim.keymap.set("n", "`", ":term<CR>")
 -- <leader>+n: next buffer
