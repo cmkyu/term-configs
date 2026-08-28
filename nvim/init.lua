@@ -69,7 +69,3 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 -- Show trailing whitespace
 vim.opt.list = true
-
--- Enable spell checking
-vim.opt.spell = true
-vim.opt.spelllang = {'en_us'}
