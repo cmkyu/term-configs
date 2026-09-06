@@ -69,3 +69,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 -- Show trailing whitespace
 vim.opt.list = true
+
+-- Always yank to and paste from system clipboard.
+vim.opt.clipboard = "unnamedplus"
